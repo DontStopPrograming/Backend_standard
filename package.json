@@ -1,11 +1,11 @@
 {
   "name": "backend_standard",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
+  "description": "Standard Structure for the Backend",
+  "main": "app.js",
   "scripts": {
-    "dev": "node src/app.js",
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -21,6 +21,11 @@
     "express": "^4.19.2",
     "mongoose": "^8.5.2",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
     "ts-node": "^10.9.2"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "typescript": "^5.5.4"
   }
 }
