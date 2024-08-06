@@ -26,10 +26,8 @@ License </br>
 
 > **PRE CONDITIONS** </br></br>
 
-Installing packages and dependencies necessarys:
-</br></br>
 Installing Node.js in your system ![image](https://github.com/DontStopPrograming/JSON_Memory_Testing/assets/101149872/c0c941c3-a5e7-47cd-97f8-0a2127bdcd7d) </br>
-Instaling package ![image](https://github.com/DontStopPrograming/JSON_Memory_Testing/assets/101149872/ae6303e2-5f97-4332-9175-486c41c2bb92) as dependencies: </br></br>
+Instaling package ![image](https://github.com/DontStopPrograming/JSON_Memory_Testing/assets/101149872/ae6303e2-5f97-4332-9175-486c41c2bb92) as dependencies necessarys: </br></br>
   `npm install` or `npm i` </br>
  `Morgan` OR ALTERNATIVES </br>
   `Express.js` ![image](https://github.com/DontStopPrograming/JSON_Memory_Testing/assets/101149872/5fbf1759-e142-4348-b37f-ff1c4a901c24)</br>
