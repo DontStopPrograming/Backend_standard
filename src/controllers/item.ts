@@ -5,8 +5,7 @@ import { insertVehicle, getVehicle, getDetailVehicle, updateVehicle, deleteVehic
 export const getItems = async (req: Request, res: Response) => {
     try {
         const responseItem = await getVehicle()
-        const data = responseItem ? responseItem : 'NOT_FOUND'
-        res.send(data)
+        res.send(responseItem)
     } catch (error) {
         handleHttp(res, 'ERROR GET DATA')
     }
@@ -16,7 +15,8 @@ export const getItem = async ({ params }: Request, res: Response) => {
     try {
         const { id } = params
         const responseDetail = await getDetailVehicle(id)
-        res.send(responseDetail)
+        const data = responseDetail ? responseDetail : 'NOT_FOUND'
+        res.send(data)
     } catch (error) {
         handleHttp(res, 'ERROR GET DATA BY ID')
     }

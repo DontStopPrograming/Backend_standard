@@ -1,18 +1,19 @@
 import { Request, Response, Router } from 'express'
 
 import { getItems, getItem, postItem, patchItem, delItem } from '../controllers/item'
+import { logMiddleware } from '../middleware/log'
 
 export const router = Router()
 
-router.get('/item', getItems)
+router.get('/', getItems)
 
-router.get('/item/:id', getItem)
+router.get('/:id', logMiddleware, getItem)
 
-router.post('/item', postItem)
+router.post('/', postItem)
 
-router.patch('/item/:id', patchItem)
+router.patch('/:id', patchItem)
 
-router.delete('/item/:id', delItem)
+router.delete('/:id', delItem)
 
-export default { router, getItems, getItem, postItem, patchItem, delItem }
+export default router
 
