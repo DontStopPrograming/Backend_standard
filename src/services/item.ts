@@ -1,10 +1,14 @@
 import { Vehicle } from '../interface/vehicle.interface'
-
-import { itemModel } from "../models/items"
+import { itemModel } from '../models/items'
 
 export const getVehicle = async () => {
-    const responseItem = await itemModel.find({})
-    return responseItem
+    try {
+        const responseItem = await itemModel.find({})
+        return responseItem
+    } catch (error) {
+        console.error('ERROR IN GETVEHICLE', error)
+        throw error
+    }
 }
 
 export const getDetailVehicle = async (id: string) => {

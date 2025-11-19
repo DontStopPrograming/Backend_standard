@@ -17,10 +17,14 @@ export const authSchema = new Schema<User>(
             type: String,
             required: true,
         },
+        role: {
+            type: String,
+            default: 'yeah',
+        },
         description: {
             type: String,
             default: 'not yet',
-        }
+        },
     },
 
     {
@@ -29,6 +33,6 @@ export const authSchema = new Schema<User>(
     }
 )
 
-export const authModel = model('users', authSchema)
+export const authModel = model('user', authSchema)
 
 export default { authModel }

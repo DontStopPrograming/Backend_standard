@@ -5,14 +5,19 @@ import { encrypt, verified } from "../utils/bcrypt"
 import { generateToken } from "../utils/jwt"
 
 
-export const registerNewUser = async ({ email, password, name }: User) => {
-    const checkIs = await authModel.findOne({ email })
-    if (checkIs) return 'ALREADY USER'
+export const registerNewUser = async ({ email, password, name, role, description }: User) => {
+    try {
+        const checkIs = await authModel.findOne({ email })
+        if (checkIs) return 'ALREADY USER'
 
-    const passHash = await encrypt(password)
+        const passHash = await encrypt(password)
 
-    const registerNewUser = await authModel.create({ email, password: passHash, name })
-    return registerNewUser
+        const registerNewUser = await authModel.create({ email, password: passHash, name, role, description })
+        return registerNewUser
+    } catch (error) {
+        console.error('ERROR CREATING USER:', error)
+        throw new Error('ERROR_CREATION_FAILED')
+    }
 }
 
 export const loginUser = async ({ email, password }: Auth) => {

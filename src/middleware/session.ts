@@ -1,16 +1,17 @@
 import { Request, Response, NextFunction } from 'express'
+import { RequestExt } from '../interface/req-ext'
 import { verifyToken } from '../utils/jwt'
 
-export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
+export const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => {
     try {
         const jwtByUser = req.headers.authorization || null
         const jwt = jwtByUser?.split(' ').pop()
-        const isOk = verifyToken(`${jwt}`)
-        if (!isOk) {
+        const isUser = verifyToken(`${jwt}`) as { id: string }
+        if (!isUser) {
             res.status(401)
             res.send('DONT_HAVE_VALID')
         } else {
-            console.log({ jwtByUser })
+            req.user = isUser
             next()
         }
 
@@ -19,3 +20,4 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
         res.send('INVALID_SESSION')
     }
 }
+

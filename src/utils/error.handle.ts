@@ -7,3 +7,4 @@ export const handleHttp = (res: Response, error: string, errorRaw?: any) => {
 }
 
 export default { handleHttp }
+

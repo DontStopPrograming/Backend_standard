@@ -4,8 +4,8 @@ import { insertVehicle, getVehicle, getDetailVehicle, updateVehicle, deleteVehic
 
 export const getItems = async (req: Request, res: Response) => {
     try {
-        const responseItem = await getVehicle()
-        res.send(responseItem)
+        const responseInsert = await getVehicle()
+        res.send(responseInsert)
     } catch (error) {
         handleHttp(res, 'ERROR GET DATA')
     }
@@ -25,7 +25,7 @@ export const getItem = async ({ params }: Request, res: Response) => {
 export const postItem = async ({ body }: Request, res: Response) => {
     try {
         const responseInsert = await insertVehicle(body)
-        res.send(responseInsert)
+        res.status(201).send(responseInsert)
 
     } catch (error) {
         handleHttp(res, 'ERROR POST DATA', error)
@@ -36,6 +36,9 @@ export const patchItem = async ({ params, body }: Request, res: Response) => {
     try {
         const { id } = params
         const responseUpdate = await updateVehicle(id, body)
+        if (!responseUpdate) {
+            return res.status(404).send('Item NOT FOUND')
+        }
         res.send(responseUpdate)
     } catch (error) {
         handleHttp(res, 'ERROR UPDATE DATA')

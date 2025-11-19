@@ -4,16 +4,17 @@ import cors from 'cors'
 
 import db from './config/mongo'
 
-import { router } from './routes'
+import { router } from '@/routes/index'
 
 const app = express()
 
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 app.use(router)
 
-db().then(() => console.log('Conection is Ready in mongoDB'))
+db().then(() => console.log('Connection is Ready in mongoDB'))
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => console.log(`Server is running in port ${PORT}`))
+
