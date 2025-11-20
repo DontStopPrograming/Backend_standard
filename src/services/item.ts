@@ -1,7 +1,7 @@
 import { Vehicle } from '../interface/vehicle.interface'
 import { itemModel } from '../models/items'
 
-export const getVehicle = async () => {
+const getVehicle = async () => {
     try {
         const responseItem = await itemModel.find({})
         return responseItem
@@ -11,27 +11,27 @@ export const getVehicle = async () => {
     }
 }
 
-export const getDetailVehicle = async (id: string) => {
+const getDetailVehicle = async (id: string) => {
     const responseDetail = await itemModel.findById({ _id: id })
     return responseDetail
 }
 
-export const insertVehicle = async (item: Vehicle) => {
+const insertVehicle = async (item: Vehicle) => {
     const responseInsert = await itemModel.create(item)
     return responseInsert
 }
 
-export const updateVehicle = async (id: string, data: Vehicle) => {
+const updateVehicle = async (id: string, data: Vehicle) => {
     const responseUpdate = await itemModel.findOneAndUpdate({ _id: id }, data, {
         new: true,
     })
     return responseUpdate
 }
 
-export const deleteVehicle = async (id: string) => {
+const deleteVehicle = async (id: string) => {
     const responseDelete = await itemModel.deleteOne({ _id: id })
     return responseDelete
 
 }
 
-export default { getVehicle, getDetailVehicle, insertVehicle, updateVehicle, deleteVehicle }
+export { getVehicle, getDetailVehicle, insertVehicle, updateVehicle, deleteVehicle }

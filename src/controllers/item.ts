@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { handleHttp } from '../utils/error.handle'
 import { insertVehicle, getVehicle, getDetailVehicle, updateVehicle, deleteVehicle } from '../services/item'
 
-export const getItems = async (req: Request, res: Response) => {
+const getItems = async (req: Request, res: Response) => {
     try {
         const responseInsert = await getVehicle()
         res.send(responseInsert)
@@ -11,7 +11,7 @@ export const getItems = async (req: Request, res: Response) => {
     }
 }
 
-export const getItem = async ({ params }: Request, res: Response) => {
+const getItem = async ({ params }: Request, res: Response) => {
     try {
         const { id } = params
         const responseDetail = await getDetailVehicle(id)
@@ -22,7 +22,7 @@ export const getItem = async ({ params }: Request, res: Response) => {
     }
 }
 
-export const postItem = async ({ body }: Request, res: Response) => {
+const postItem = async ({ body }: Request, res: Response) => {
     try {
         const responseInsert = await insertVehicle(body)
         res.status(201).send(responseInsert)
@@ -32,7 +32,7 @@ export const postItem = async ({ body }: Request, res: Response) => {
     }
 }
 
-export const patchItem = async ({ params, body }: Request, res: Response) => {
+const patchItem = async ({ params, body }: Request, res: Response) => {
     try {
         const { id } = params
         const responseUpdate = await updateVehicle(id, body)
@@ -45,7 +45,7 @@ export const patchItem = async ({ params, body }: Request, res: Response) => {
     }
 }
 
-export const delItem = async ({ params }: Request, res: Response) => {
+const delItem = async ({ params }: Request, res: Response) => {
     try {
         const { id } = params
         const responseDelete = await deleteVehicle(id)
@@ -54,3 +54,5 @@ export const delItem = async ({ params }: Request, res: Response) => {
         handleHttp(res, 'ERROR DELETE DATA')
     }
 }
+
+export { getItems, getItem, postItem, patchItem, delItem }

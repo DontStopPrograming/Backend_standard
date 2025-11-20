@@ -5,7 +5,7 @@ import { encrypt, verified } from "../utils/bcrypt"
 import { generateToken } from "../utils/jwt"
 
 
-export const registerNewUser = async ({ email, password, name, role, description }: User) => {
+const registerNewUser = async ({ email, password, name, role, description }: User) => {
     try {
         const checkIs = await authModel.findOne({ email })
         if (checkIs) return 'ALREADY USER'
@@ -20,7 +20,7 @@ export const registerNewUser = async ({ email, password, name, role, description
     }
 }
 
-export const loginUser = async ({ email, password }: Auth) => {
+const loginUser = async ({ email, password }: Auth) => {
     const checkIs = await authModel.findOne({ email })
     if (!checkIs) return 'NOT FOUND USER'
 
@@ -37,3 +37,5 @@ export const loginUser = async ({ email, password }: Auth) => {
 
     return data
 }
+
+export { registerNewUser, loginUser }

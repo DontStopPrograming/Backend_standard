@@ -4,7 +4,7 @@ import { RequestExt } from '../interface/req-ext'
 
 import { handleHttp } from '../utils/error.handle'
 
-export const getItems = (req: RequestExt, res: Response) => {
+const getItems = (req: RequestExt, res: Response) => {
     try {
         res.send({
             data: 'THIS CAN ONLY BE SEEN BY PEOPLE WHO ARE LOGGED IN / JWT',
@@ -15,5 +15,5 @@ export const getItems = (req: RequestExt, res: Response) => {
     }
 }
 
-
+export { getItems }
 
