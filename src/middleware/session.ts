@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from 'express'
+
 import { RequestExt } from '../interface/req-ext'
 import { verifyToken } from '../utils/jwt'
 
-export const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => {
+const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => {
     try {
         const jwtByUser = req.headers.authorization || null
         const jwt = jwtByUser?.split(' ').pop()
@@ -21,3 +22,4 @@ export const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => 
     }
 }
 
+export { checkJwt }

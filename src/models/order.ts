@@ -35,6 +35,6 @@ const orderSchema = new Schema<Order>(
     }
 )
 
-export const orderModel = model('orders', orderSchema)
+const orderModel = model('orders', orderSchema)
 
-export default { orderModel }
+export { orderModel }

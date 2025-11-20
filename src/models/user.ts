@@ -2,7 +2,7 @@ import { User } from "../interface/user.interface"
 
 import { Schema, Types, model, Model, } from 'mongoose'
 
-export const authSchema = new Schema<User>(
+const authSchema = new Schema<User>(
     {
         email: {
             type: String,
@@ -33,6 +33,6 @@ export const authSchema = new Schema<User>(
     }
 )
 
-export const authModel = model('user', authSchema)
+const authModel = model('user', authSchema)
 
-export default { authModel }
+export { authModel }

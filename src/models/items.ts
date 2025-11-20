@@ -3,7 +3,7 @@ import { Vehicle } from "../interface/vehicle.interface";
 import { Schema, Types, model, Model } from "mongoose";
 
 
-export const itemSchema = new Schema<Vehicle>(
+const itemSchema = new Schema<Vehicle>(
     {
         name: {
             type: String,
@@ -38,6 +38,6 @@ export const itemSchema = new Schema<Vehicle>(
     }
 )
 
-export const itemModel = model('item', itemSchema)
+const itemModel = model('item', itemSchema)
 
-export default { itemModel }
+export { itemModel }

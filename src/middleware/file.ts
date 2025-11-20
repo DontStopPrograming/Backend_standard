@@ -14,5 +14,7 @@ const storage = diskStorage({
     }
 })
 
-export const multerMiddleware = multer({ storage })
+const multerMiddleware = multer({ storage })
+
+export { multerMiddleware }
 

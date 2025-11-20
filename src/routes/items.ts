@@ -3,7 +3,7 @@ import { Request, Response, Router } from 'express'
 import { getItems, getItem, postItem, patchItem, delItem } from '../controllers/item'
 import { logMiddleware } from '../middleware/log'
 
-export const router = Router()
+const router = Router()
 
 router.get('/', getItems)
 
@@ -15,5 +15,5 @@ router.patch('/:id', patchItem)
 
 router.delete('/:id', delItem)
 
-export default router
+export { router }
 

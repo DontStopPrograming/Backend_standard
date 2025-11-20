@@ -4,8 +4,8 @@ import { getItems } from '../controllers/order'
 
 import { checkJwt } from '../middleware/session'
 
-export const router = Router()
+const router = Router()
 
 router.get('/', checkJwt, getItems)
 
-export default router
+export { router }
