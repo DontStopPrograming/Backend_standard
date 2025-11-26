@@ -7,4 +7,4 @@ async function db(): Promise<void> {
     await connect(DB_URI)
 }
 
-export default db
+export { db }

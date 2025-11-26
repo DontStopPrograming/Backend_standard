@@ -17,3 +17,4 @@ const verifyToken = (token: string) => {
 }
 
 export { generateToken, verifyToken }
+
